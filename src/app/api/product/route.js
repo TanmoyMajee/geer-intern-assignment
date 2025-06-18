@@ -1,44 +1,78 @@
 // Mock database (same as above)
 import path from 'path';
 import fs from  'fs';
-const products = [
-  {
-    id: 1,
-    name: "Wireless Headphones",
-    price: 99.99,
-    description: "High-quality wireless headphones with noise cancellation",
-    image: "https://via.placeholder.com/300",
-    category: "Electronics"
-  },
-  {
-    id: 2,
-    name: "Smart Watch",
-    price: 199.99,
-    description: "Feature-rich smartwatch with health monitoring",
-    image: "https://via.placeholder.com/300",
-    category: "Electronics"
-  },
-  {
-    id: 3,
-    name: "Running Shoes",
-    price: 79.99,
-    description: "Comfortable running shoes for all terrains",
-    image: "https://via.placeholder.com/300",
-    category: "Sports"
-  }
-];
 
-export async function GET(request) {
-  return Response.json(products);
+const filePath = path.join(process.cwd(), 'src', 'data', 'product.json');
+
+const getProductsData =() => {  
+  const jsonData = fs.readFileSync(filePath, 'utf8');
+  // '{"products": [{"id": 1, "name": "Product 1"}]}'
+  // str to object parsing
+  return JSON.parse(jsonData);
+};
+
+function saveProductsData(data) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
+
+export async function GET() {
+  try {
+    const data = getProductsData();
+    // console.log(data)
+    return Response.json(data.products);
+  } catch (error) {
+    return Response.json(
+      { error: 'Failed to fetch products' },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(request) {
-    const {name} = await request.json();
-    console.log('name:',name)
-    console.log(process.cwd())
-    const newPath = path.join(process.cwd(),'src','data','product.json')
-    console.log(newPath);
-    return Response.json({msg:'respose'})
+ try {
+   const { name, price, imageUrl, description, category } = await request.json();
+   if (!name || !price || !imageUrl) {
+     return Response.json({
+       msg: 'Missing required fields: name, price, imageUrl',
+       status: 400
+     })
+   }
+   
+
+   const data = getProductsData(); // get all the product 
+
+  //  now create the new Id of the product
+   let mxId =0;
+   data.products.forEach(product => {
+     if (product.id > mxId) {
+       mxId = product.id;
+     }
+   });
+   const newId = mxId+1;
+   const newProduct = {
+    id:newId,
+    name,
+    price,
+    imageUrl,
+    description : description || '',
+    category : category || 'general'
+   }
+   
+  //  get the prodcut object and push the new product
+
+  data.products.push(newProduct) // add newprodut into curr array & save the file
+  
+  saveProductsData(data);
+
+   return Response.json({ msg: 'Product added Successfully' , status:201 })
+ } catch (error) {
+   console.log(error)
+   return Response.json(
+     { error: 'Failed to Add product' },
+     { status: 500 }
+   );
+ }
+
 }
 
 // now go through the assignmetn again and  explain me if i go for a seperate json file approach then whta i need to do and give the routes aslo
