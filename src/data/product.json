@@ -23,6 +23,14 @@
       "imageUrl": "/images/gaming-mouse.jpg",
       "category": "Gaming",
       "description": "High-precision gaming mouse with RGB lighting"
+    },
+    {
+      "id": 4,
+      "name": "Apple Watch",
+      "price": 154,
+      "imageUrl": "jksdfhjkfh",
+      "description": "",
+      "category": "watch"
     }
   ]
 }
