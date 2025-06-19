@@ -41,19 +41,15 @@ export async function DELETE(request,{params}) {
     const id = parseInt(productId);
     // get the product arr then then apply splice on that indx 
     const data = getProductsData();
-    let indx = -1;
-    data.products.map((prd,i)=>{
-        if(prd.id == id){
-          indx = i;
-        }
-    })
-    console.log('INDX : ',indx);
+
+    const indx = data.products.findIndex(prd => prd.id == id);
+    // console.log('INDX : ',indx);
     if(indx==-1){
       return Response.json({ msg: 'Product Not Exits', status: 400 });
     }
     // now delete fromt array and save in file
     data.products.splice(indx,1); // eg splice(2,3) so del the 2nd indx 
-    console.log(data);
+    // console.log(data);
     saveProductsData(data);
     return Response.json({ msg: 'Product Deleted Successfully', status: 201 });
   } catch (error) {
