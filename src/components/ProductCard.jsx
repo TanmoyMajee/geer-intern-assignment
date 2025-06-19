@@ -14,14 +14,14 @@ export default function ProductCard({ product, onDelete }) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:scale-105 transition duration-300">
       <div className="relative h-48 w-full">
-        {/* <img
+        <img
           src={product.imageUrl}
-          // fill
-          className="object-cover"
-          // onError={(e) => {
-          //   e.target.src = '/images/placeholder.jpg';
-          // }}
-        /> */}
+          className="w-[200px] h-[200px] object-cover"
+          onError={(e) => {
+            e.target.onerror = null; // Prevent infinite loop
+            e.target.src = 'https://via.placeholder.com/400x400?text=No+Image';
+          }}
+        />
       </div>
 
       <div className="p-4">
