@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Wireless Headphones",
       "price": 2999,
-      "imageUrl": "/images/headphones.jpg",
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRo5ekdAgvCTfOpQsgRPz1Yq2xv7pKAg_W7RxH6UxGSWHBxnUhYrlAVOGirVT9tNbAaCG5aQ6HoHw9ffimUJBZcyjH69i4Jc5vlcc1g14m8NGr6Vqd3j8FZ1g",
       "category": "Electronics",
       "description": "High-quality wireless headphones with noise cancellation"
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "name": "Smart Watch",
       "price": 5999,
-      "imageUrl": "/images/smartwatch.jpg",
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRo5ekdAgvCTfOpQsgRPz1Yq2xv7pKAg_W7RxH6UxGSWHBxnUhYrlAVOGirVT9tNbAaCG5aQ6HoHw9ffimUJBZcyjH69i4Jc5vlcc1g14m8NGr6Vqd3j8FZ1g",
       "category": "Electronics",
       "description": "Feature-rich smartwatch with fitness tracking"
     },
@@ -20,17 +20,25 @@
       "id": 3,
       "name": "Gaming Mouse",
       "price": 1899,
-      "imageUrl": "/images/gaming-mouse.jpg",
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRo5ekdAgvCTfOpQsgRPz1Yq2xv7pKAg_W7RxH6UxGSWHBxnUhYrlAVOGirVT9tNbAaCG5aQ6HoHw9ffimUJBZcyjH69i4Jc5vlcc1g14m8NGr6Vqd3j8FZ1g",
       "category": "Gaming",
       "description": "High-precision gaming mouse with RGB lighting"
     },
     {
       "id": 4,
+      "name": "Gaming Mouse",
+      "price": 1899,
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRo5ekdAgvCTfOpQsgRPz1Yq2xv7pKAg_W7RxH6UxGSWHBxnUhYrlAVOGirVT9tNbAaCG5aQ6HoHw9ffimUJBZcyjH69i4Jc5vlcc1g14m8NGr6Vqd3j8FZ1g",
+      "category": "Gaming",
+      "description": "High-precision gaming mouse with RGB lighting"
+    },
+    {
+      "id": 5,
       "name": "Apple Watch",
-      "price": 154,
-      "imageUrl": "jksdfhjkfh",
-      "description": "",
-      "category": "watch"
+      "price": "516465",
+      "imageUrl": "https://tse2.mm.bing.net/th?id=OIP.GOnVw7fxAcF5GYEOZA4FHwAAAA&pid=Api&P=0&h=180",
+      "description": "Apple Watch Ultra 2 arrives with new S9 SiP, on-device Siri, double-tap gestures, and whopping 3,000 nits brightness\nThe Apple Watch Ultra 2&#039;s display can attain 3,000 nits brightness in harsh sunlight. (Image Source: Apple)The Apple Watch Ultra 2's display can attain 3,000 nits brightness in harsh sunlight. (Image Source: Apple)\nApple took wraps off the new Watch Ultra 2 alongside the new Watch Series 9. The Watch Ultra 2 features several internal upgrades including the new S9 SiP, a larger altitude range, and a 3,000-nit display. The S9 SiP powers several new features such as on-device neural processing with Siri and a new double-tap",
+      "category": "electronice"
     }
   ]
 }
