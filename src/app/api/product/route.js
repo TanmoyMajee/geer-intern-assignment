@@ -1,19 +1,10 @@
-// Mock database (same as above)
-import path from 'path';
-import fs from  'fs';
 
-const filePath = path.join(process.cwd(), 'src', 'data', 'product.json');
 
-const getProductsData =() => {  
-  const jsonData = fs.readFileSync(filePath, 'utf8');
-  // '{"products": [{"id": 1, "name": "Product 1"}]}'
-  // str to object parsing
-  return JSON.parse(jsonData);
-};
+import getProductsData from '../../../lib/getProductsData'
+import saveProductsData from '../../../lib/saveDataIntoFile'
 
-function saveProductsData(data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-}
+
+
 
 export async function GET() {
   try {
@@ -64,7 +55,7 @@ export async function POST(request) {
   
   saveProductsData(data);
 
-   return Response.json({ msg: 'Product added Successfully' , status:201 })
+   return Response.json({ msg: 'Product added Successfully' , status:201 });
  } catch (error) {
    console.log(error)
    return Response.json(
